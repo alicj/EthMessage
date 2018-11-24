@@ -11,10 +11,10 @@ class App extends Component {
     let url = "http://localhost:8545";
     let provider = new ethers.providers.JsonRpcProvider(url);
 
-    let privateKey = "0x6fb232f411a92140e209657e15e4cb769c2d03f14e0b271ebd6306b1c28e75d7";
+    let privateKey = "";
     let walletWithProvider = new ethers.Wallet(privateKey, provider);
 
-    let contractAddress = "0xa569e6dfcd6004cb0b166a6d1e3c7338e8a6b428";
+    let contractAddress = "";
     let contract = new ethers.Contract(contractAddress, abi, walletWithProvider);
     this.contract = contract;
 
