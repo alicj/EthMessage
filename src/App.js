@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { ethers } from 'ethers';
+import abi from './abi.js';
 
 class App extends Component {
 
@@ -11,68 +11,10 @@ class App extends Component {
     let url = "http://localhost:8545";
     let provider = new ethers.providers.JsonRpcProvider(url);
 
-    let privateKey = "";
+    let privateKey = "0x6fb232f411a92140e209657e15e4cb769c2d03f14e0b271ebd6306b1c28e75d7";
     let walletWithProvider = new ethers.Wallet(privateKey, provider);
 
-    let abi =
-    [
-                	{
-                		"constant": false,
-                		"inputs": [],
-                		"name": "getMessage",
-                		"outputs": [
-                			{
-                				"name": "",
-                				"type": "string"
-                			}
-                		],
-                		"payable": false,
-                		"stateMutability": "nonpayable",
-                		"type": "function"
-                	},
-                	{
-                		"anonymous": false,
-                		"inputs": [
-                			{
-                				"indexed": false,
-                				"name": "newMessage",
-                				"type": "string"
-                			}
-                		],
-                		"name": "MessageChanged",
-                		"type": "event"
-                	},
-                	{
-                		"constant": false,
-                		"inputs": [
-                			{
-                				"name": "newMsg",
-                				"type": "string"
-                			}
-                		],
-                		"name": "setMessage",
-                		"outputs": [],
-                		"payable": false,
-                		"stateMutability": "nonpayable",
-                		"type": "function"
-                	},
-                	{
-                		"constant": true,
-                		"inputs": [],
-                		"name": "message",
-                		"outputs": [
-                			{
-                				"name": "",
-                				"type": "string"
-                			}
-                		],
-                		"payable": false,
-                		"stateMutability": "view",
-                		"type": "function"
-                	}
-    ]
-
-    let contractAddress = "";
+    let contractAddress = "0xa569e6dfcd6004cb0b166a6d1e3c7338e8a6b428";
     let contract = new ethers.Contract(contractAddress, abi, walletWithProvider);
     this.contract = contract;
 
