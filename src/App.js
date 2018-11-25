@@ -55,7 +55,8 @@ class App extends Component {
       uids: [],
       trans: [],
       sentTable: [],
-      update: false
+      update: false,
+      userAddress: ''
     }
 
     // this.handleInputChange = this.handleInputChange.bind(this);
@@ -90,7 +91,9 @@ class App extends Component {
 
   async componentDidMount() {
     // const message = await this.contract.message();
+    this.state.userAddress = await this.signer.getAddress();
     await this.loadTrans();
+
   }
 
   async loadTrans() {
@@ -175,7 +178,7 @@ class App extends Component {
       children = []
       //Inner loop to create children
       const addr = await this.signer.getAddress()
-      if (addr == t.sender || addr == t.receiver) {
+      if (addr === t.sender || addr === t.receiver) {
 
         for (let p in t) {
           console.log('p', t[p])
@@ -200,9 +203,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           
-          <table class="trans">
-            {this.state.sentTable}
+          <table className="trans">
+            <tbody>
+              {this.state.sentTable}
+            </tbody>
           </table>
+
+          Your wallet address: <br/>
+          {this.state.userAddress}
+            <br/>
+            <br/>
 
             Receiver Address: 
             <br/>
