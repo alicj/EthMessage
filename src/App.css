@@ -30,3 +30,23 @@
     transform: rotate(360deg);
   }
 }
+
+.trans td {
+    border: 1px solid white;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    padding: 0.2em;
+}
+
+table {
+  margin-bottom: 50px;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+button {
+  margin-top: 15px;
+  color: black;
+}

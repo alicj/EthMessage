@@ -1,29 +1,20 @@
 module.exports = [
   {
-    "constant": true,
+    "constant": false,
     "inputs": [
       {
-        "name": "",
+        "name": "_uid",
         "type": "bytes32"
-      }
-    ],
-    "name": "transactions",
-    "outputs": [
+      },
       {
-        "name": "receiver",
+        "name": "_reader",
         "type": "address"
-      },
-      {
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "name": "message",
-        "type": "bytes32"
       }
     ],
+    "name": "getMessage",
+    "outputs": [],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -47,24 +38,6 @@ module.exports = [
       }
     ],
     "name": "transferETH",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_uid",
-        "type": "bytes32"
-      },
-      {
-        "name": "_reader",
-        "type": "address"
-      }
-    ],
-    "name": "getMessage",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -97,5 +70,36 @@ module.exports = [
     ],
     "name": "trans",
     "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "transactions",
+    "outputs": [
+      {
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "name": "message",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   }
 ]

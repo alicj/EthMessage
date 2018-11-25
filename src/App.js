@@ -38,7 +38,7 @@ class App extends Component {
 
 
     // let contractAddress = "0x474f84204e14dd8ebb46501adf555fe448f371c7";
-    let contractAddress = "0xa202136afc9ecf2bb0160ec711ec95334dd6a012";
+    let contractAddress = "0x64f5f1e1ab54b81100dfaa46171c50035951763f";
     let contract = new ethers.Contract(contractAddress, abi, this.signer);
     this.contract = contract;
 
@@ -54,7 +54,8 @@ class App extends Component {
       getFormUid: '',
       uids: [],
       trans: [],
-      sentTable: []
+      sentTable: [],
+      update: false
     }
 
     // this.handleInputChange = this.handleInputChange.bind(this);
@@ -90,7 +91,6 @@ class App extends Component {
   async componentDidMount() {
     // const message = await this.contract.message();
     await this.loadTrans();
-    // let msg = await this.contract.getMessage("0x6b336e383762736a716971346b5048675531314a645637397675434c69505200", this.signer.getAddress())
   }
 
   async loadTrans() {
@@ -103,12 +103,13 @@ class App extends Component {
       console.log('result of ' + id, hex)
       // console.log('hex ', hex)
       let message = ethers.utils.parseBytes32String(hex.message);
-      this.state.trans.push({receiver: hex.receiver, amount: parseInt(hex.amount._hex), message: message});
+      let trans = {sender: hex.sender, receiver: hex.receiver, amount: parseInt(hex.amount._hex), message: message};
+      this.state.trans.push(trans);
       this.setState((state) => {
         return {message: message};
       });
     }
-    this.updateSentTable();
+    await this.updateSentTable();
   }
 
   async handleGet() {
@@ -156,22 +157,40 @@ class App extends Component {
   }
 
 
-  updateSentTable = () => {
+  async updateSentTable() {
+    console.log(this.state.trans)
     // Outer loop to create parent
+    let children = []
+    for (let p in this.state.trans[0]) {
+      // console.log('p', p)
+      let tdid = '-1' + p;
+      // console.log(tdid)
+      children.push(<td key={tdid}>{p}</td>)
+    }
+    this.state.sentTable.push(<tr key={'00000'}>{children}</tr>)
+    
     for (let i = 0; i < this.state.trans.length; i ++) {
       let t = this.state.trans[i];
       // console.log('t', t)
-      let children = []
+      children = []
       //Inner loop to create children
-      for (let p in t) {
-        // console.log('p', p)
-        let tdid = i + p;
-        // console.log(tdid)
-        children.push(<td key={tdid}>{t[p]}</td>)
+      const addr = await this.signer.getAddress()
+      if (addr == t.sender || addr == t.receiver) {
+
+        for (let p in t) {
+          console.log('p', t[p])
+          let tdid = i + p;
+          console.log(tdid)
+          children.push(<td key={tdid}>{t[p]}</td>)
+        }
+        //Create the parent and add the children
+        this.state.sentTable.push(<tr key={i}>{children}</tr>)
       }
-      //Create the parent and add the children
-      this.state.sentTable.push(<tr key={i}>{children}</tr>)
     }
+
+    this.setState((state) => {
+      return {update: true};
+    });
 
   }
 
@@ -181,34 +200,34 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           
-          <table>
+          <table class="trans">
             {this.state.sentTable}
           </table>
 
-          <p>
-            Receiver Address:
+            Receiver Address: 
+            <br/>
             <input
               onChange={this.handleFormAddressChange} 
               type="text"
               name="address"
               value={this.state.formAddress}/>
-          </p>
-          <p>
+
             Amount:
+            <br/>
             <input
               onChange={this.handleFormAmountChange} 
               type="text"
               name="amount"
               value={this.state.formAmount}/>
-          </p>
-          <p>
+
             Message:
+            <br/>
             <input
               onChange={this.handleFormMessageChange} 
               type="text"
               name="message"
               value={this.state.formMessage}/>
-          </p>
+
           <button onClick={this.handleClick}>
             Send
           </button>

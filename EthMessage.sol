@@ -7,7 +7,7 @@ contract EthMessage {
     using EthMessageLib for EthMessageLib.Transaction;
     
     address sender;
-    mapping (bytes8=> EthMessageLib.Transaction) transactions;
+    mapping (bytes32 => EthMessageLib.Transaction) public transactions ;
 
     constructor() public payable {
         sender = msg.sender;
@@ -15,16 +15,19 @@ contract EthMessage {
     
     function () public payable { 
     }
+    
+    event trans(bytes32 _uid, bytes32 _msg);
 
 
-    function getMessage(bytes8 _uid, address _owner, address _reader) public returns (bytes8) {
-        require(EthMessageLib.getMessage(_uid, _owner, _reader), "Permission denied");
-        return transactions[_uid].message; 
+    function getMessage(bytes32 _uid, address _reader) public {
+        require(EthMessageLib.getMessage(_uid, transactions[_uid].receiver, _reader), "Permission denied");
+        emit trans(_uid, transactions[_uid].message); 
     }
     
-    function transferETH(bytes8 _uid, address _receiver, uint _amount, bytes8 _msg) public{
-        transactions[_uid] = EthMessageLib.Transaction(_receiver, _amount, _msg);
+    function transferETH(bytes32 _uid, address _receiver, uint _amount, bytes32 _msg) public{
+        transactions[_uid] = EthMessageLib.Transaction(msg.sender, _receiver, _amount, _msg);
         // EthMessageLib.transferETH(_receiver, _amount); 
+        // emit trans(_uid, _msg); 
     }
     
     // function debug() public returns (Transaction){
