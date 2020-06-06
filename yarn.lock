@@ -1037,6 +1037,11 @@ address@1.0.3, address@^1.0.1:
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
   integrity sha512-z55ocwKBRLryBs394Sm3ushTtBeg6VAeuku7utSoSnsJKvKcnXFIyC6vh27n3rXyxSgkJBBCAvyOn7gSUcTYjg==
 
+aes-js@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/aes-js/-/aes-js-3.0.0.tgz#e21df10ad6c2053295bcbb8dab40b09dbea87e4d"
+  integrity sha1-4h3xCtbCBTKVvLuNq0Cwnb6ofk0=
+
 ajv-errors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
@@ -3028,6 +3033,19 @@ electron-to-chromium@^1.3.62, electron-to-chromium@^1.3.82:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.82.tgz#7d13ae4437d2a783de3f4efba96b186c540b67b1"
   integrity sha512-NI4nB2IWGcU4JVT1AE8kBb/dFor4zjLHMLsOROPahppeHrR0FG5uslxMmkp/thO1MvPjM2xhlKoY29/I60s0ew==
 
+elliptic@6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
+  integrity sha512-f4x70okzZbIQl/NSRLkI/+tteV/9WqL98zx+SQ69KbXxmVrmjwsNUPn/gYJJ0sHvEak24cZgHIPegRePAtA/xw==
+  dependencies:
+    bn.js "^4.4.0"
+    brorand "^1.0.1"
+    hash.js "^1.0.0"
+    hmac-drbg "^1.0.0"
+    inherits "^2.0.1"
+    minimalistic-assert "^1.0.0"
+    minimalistic-crypto-utils "^1.0.0"
+
 elliptic@^6.0.0:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.4.1.tgz#c2d0b7776911b86722c632c3c06c60f2f819939a"
@@ -3332,6 +3350,21 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+
+ethers@^4.0.13:
+  version "4.0.47"
+  resolved "https://registry.yarnpkg.com/ethers/-/ethers-4.0.47.tgz#91b9cd80473b1136dd547095ff9171bd1fc68c85"
+  integrity sha512-hssRYhngV4hiDNeZmVU/k5/E8xmLG8UpcNUzg6mb7lqhgpFPH/t7nuv20RjRrEf0gblzvi2XwR5Te+V3ZFc9pQ==
+  dependencies:
+    aes-js "3.0.0"
+    bn.js "^4.4.0"
+    elliptic "6.5.2"
+    hash.js "1.1.3"
+    js-sha3 "0.5.7"
+    scrypt-js "2.0.4"
+    setimmediate "1.0.4"
+    uuid "2.0.1"
+    xmlhttprequest "1.8.0"
 
 eventemitter3@^3.0.0:
   version "3.1.0"
@@ -4204,6 +4237,14 @@ hash-base@^3.0.0:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+hash.js@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/hash.js/-/hash.js-1.1.3.tgz#340dedbe6290187151c1ea1d777a3448935df846"
+  integrity sha512-/UETyP0W22QILqS+6HowevwhEFJ3MBJnwTf75Qob9Wz9t0DPuisL8kW8YZMK62dHAKE1c1p+gY1TtOLY+USEHA==
+  dependencies:
+    inherits "^2.0.3"
+    minimalistic-assert "^1.0.0"
 
 hash.js@^1.0.0, hash.js@^1.0.3:
   version "1.1.5"
@@ -5348,6 +5389,11 @@ js-levenshtein@^1.1.3:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.4.tgz#3a56e3cbf589ca0081eb22cd9ba0b1290a16d26e"
   integrity sha512-PxfGzSs0ztShKrUYPIn5r0MtyAhYcCwmndozzpz8YObbPnD1jFxzlBGbRnX2mIu6Z13xN6+PTu05TQFnZFlzow==
+
+js-sha3@0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.5.7.tgz#0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7"
+  integrity sha1-DU/9gALVMzqrr0oj7tL2N0yfKOc=
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -7705,15 +7751,15 @@ react-dev-utils@^6.1.1:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-dom@16.6.3:
-  version "16.6.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
-  integrity sha512-8ugJWRCWLGXy+7PmNh8WJz3g1TaTUt1XyoIcFN+x0Zbkoz+KKdUyx1AQLYJdbFXjuF41Nmjn5+j//rxvhFjgSQ==
+react-dom@^16.6.3:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
+  integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
+    scheduler "^0.19.1"
 
 react-error-overlay@^5.1.0:
   version "5.1.0"
@@ -7775,15 +7821,14 @@ react-scripts@2.1.1:
   optionalDependencies:
     fsevents "1.2.4"
 
-react@16.6.3:
-  version "16.6.3"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
-  integrity sha512-zCvmH2vbEolgKxtqXL2wmGCUxUyNheYn/C+PD1YAjfxHC54+MhdruyhO7QieQrYsYeTxrn93PM2y0jRH1zEExw==
+react@^16.6.3:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -8230,10 +8275,10 @@ saxes@^3.1.3:
   dependencies:
     xmlchars "^1.3.1"
 
-scheduler@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
-  integrity sha512-+WCP3s3wOaW4S7C1tl3TEXp4l9lJn0ZK8G3W3WKRWmw77Z2cIFUW2MiNTMHn5sCjxN+t7N43HAOOgMjyAg5hlg==
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -8254,6 +8299,11 @@ schema-utils@^1.0.0:
     ajv "^6.1.0"
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
+
+scrypt-js@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/scrypt-js/-/scrypt-js-2.0.4.tgz#32f8c5149f0797672e551c07e230f834b6af5f16"
+  integrity sha512-4KsaGcPnuhtCZQCxFxN3GVYIhKFPTdLd8PLC552XwbMndtD0cjRFAhDuuydXQ0h08ZfPgzqe6EKHozpuH74iDw==
 
 select-hose@^2.0.0:
   version "2.0.0"
@@ -8343,6 +8393,11 @@ set-value@^2.0.0:
     is-extendable "^0.1.1"
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
+
+setimmediate@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.4.tgz#20e81de622d4a02588ce0c8da8973cbcf1d3138f"
+  integrity sha1-IOgd5iLUoCWIzgyNqJc8vPHTE48=
 
 setimmediate@^1.0.4:
   version "1.0.5"
@@ -9270,6 +9325,11 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+uuid@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.1.tgz#c2a30dedb3e535d72ccf82e343941a50ba8533ac"
+  integrity sha1-wqMN7bPlNdcsz4LjQ5QaULqFM6w=
+
 uuid@^3.0.1, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
@@ -9469,9 +9529,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
@@ -9723,6 +9783,11 @@ xmlchars@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-1.3.1.tgz#1dda035f833dbb4f86a0c28eaa6ca769214793cf"
   integrity sha512-tGkGJkN8XqCod7OT+EvGYK5Z4SfDQGD30zAa58OcnAa0RRWgzUEK72tkXhsX1FZd+rgnhRxFtmO+ihkp8LHSkw==
+
+xmlhttprequest@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
+  integrity sha1-Z/4HXFwk/vOfnWX197f+dRcZaPw=
 
 xregexp@4.0.0:
   version "4.0.0"
